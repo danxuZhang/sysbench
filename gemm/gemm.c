@@ -59,7 +59,7 @@ void loop(int N, int its, DTYPE *A, DTYPE *B, DTYPE *C, double *elapsed) {
 #endif
 
     double end = get_time();
-    elapsed[it] = (end - start);
+    // elapsed[it] = (end - start);
 #ifdef DEEBUG
     printf("Debug: Iteration %d took %.6f seconds\n", it + 1, elapsed[it]);
 #endif
@@ -163,7 +163,7 @@ void run_benchmark(int mpi_rank, int mpi_size, int N, int its, int warmup_its) {
     double loop_ops = its * ops;
     double world_ops = loop_ops * mpi_size;
     double world_gflops = world_ops / (loop_end - loop_start);
-    printf("\nGFLOP/S: %.2f\n", world_gflops / 1e9);
+    printf("GFLOP/S: %.2f\n", world_gflops / 1e9);
   }
 
   free(A);
